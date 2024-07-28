@@ -1,0 +1,14 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/sherko-button.uss?fileID=7433441132597879392&amp;guid=c1024190b2ca5a945a8a66ce79ccfe15&amp;type=3#sherko-button" />
+    <ui:VisualElement style="flex-grow: 1;">
+        <ui:VisualElement name="deathUI" style="flex-grow: 1; visibility: visible; background-color: rgba(0, 0, 0, 0.75); display: none; opacity: 1; overflow: visible;">
+            <ui:VisualElement style="flex-grow: 0; flex-shrink: 1; height: 868px; width: 600px; align-items: center; justify-content: center; align-self: center; visibility: visible; overflow: visible; top: 99px; flex-direction: column; display: flex;">
+                <ui:Label tabindex="-1" text="You Died" parse-escape-sequences="true" display-tooltip-when-elided="true" style="color: rgb(255, 255, 255); -unity-font-definition: initial; -unity-font: url(&quot;project://database/Assets/External/Feel/NiceVibrations/Demo/_Common/Fonts/BIG%20JOHN.otf?fileID=12800000&amp;guid=7015f2d2ce595844e9fe6e0c3bd8d27b&amp;type=3#BIG JOHN&quot;); font-size: 106px;" />
+                <ui:Label tabindex="-1" text="You Noob!" parse-escape-sequences="true" display-tooltip-when-elided="true" style="color: rgb(255, 93, 93); -unity-font-definition: initial; -unity-font: url(&quot;project://database/Assets/External/Feel/NiceVibrations/Demo/_Common/Fonts/BIG%20JOHN.otf?fileID=12800000&amp;guid=7015f2d2ce595844e9fe6e0c3bd8d27b&amp;type=3#BIG JOHN&quot;); font-size: 80px; -unity-text-align: upper-center;" />
+                <ui:VisualElement name="VisualElement" style="flex-grow: 0; width: 100%; background-color: rgb(255, 255, 255); border-top-left-radius: 49px; border-top-right-radius: 49px; border-bottom-right-radius: 49px; border-bottom-left-radius: 49px; -unity-background-image-tint-color: rgb(255, 255, 255); border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; -unity-text-align: upper-center; justify-content: center; height: 262px; padding-top: 34px; padding-right: 34px; padding-bottom: 34px; padding-left: 34px; align-items: stretch; align-self: center;">
+                    <ui:Button text="Respawn" parse-escape-sequences="true" display-tooltip-when-elided="true" name="respawnBtn" class="SherkoButton" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

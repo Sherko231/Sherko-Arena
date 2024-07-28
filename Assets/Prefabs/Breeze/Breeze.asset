@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 633e0f6f0fe5408797a04cdf39f8e2e1, type: 3}
+  m_Name: Breeze
+  m_EditorClassIdentifier: 
+  mesh: {fileID: 5899522698468266967, guid: 8e8f822af17f3dc44883f424a1a7066c, type: 3}
+  gunHolder: {fileID: 3079410245100334546, guid: d14c874a7343fb14087c1eb8e671b5cb,
+    type: 3}
+  characterSpecial: {fileID: 2551973204218910096, guid: 0349ae1224e59514ab3b7a4b70d84157,
+    type: 3}

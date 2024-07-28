@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fb8f6e0d26e44c883b1cdbb85c64af5, type: 3}
+  m_Name: BlastbackUltAbility
+  m_EditorClassIdentifier: 
+  index: 2
+  staminaCost: 100
+  reuseDelay: 1.5
+  duration: 10
+  ultDamageMultiplier: 3
+  ultVignetteIntensity: 0.3
+  ultVignetteSmoothness: 0.9
+  volume: {fileID: 11400000, guid: a6560a915ef98420e9faacc1c7438823, type: 2}

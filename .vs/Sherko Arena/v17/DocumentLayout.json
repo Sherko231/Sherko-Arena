@@ -1,0 +1,71 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\96396\\Desktop\\GamesPROJECTS\\Sherko Arena\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{FE3079DD-3EEB-7031-9E14-AEA2FFA7524E}|Assembly-CSharp.csproj|C:\\Users\\96396\\Desktop\\GamesPROJECTS\\Sherko Arena\\assets\\scripts\\gui\\codeui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FE3079DD-3EEB-7031-9E14-AEA2FFA7524E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\gui\\codeui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE3079DD-3EEB-7031-9E14-AEA2FFA7524E}|Assembly-CSharp.csproj|c:\\users\\96396\\desktop\\gamesprojects\\sherko arena\\assets\\scripts\\gamerelay.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FE3079DD-3EEB-7031-9E14-AEA2FFA7524E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\gamerelay.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE3079DD-3EEB-7031-9E14-AEA2FFA7524E}|Assembly-CSharp.csproj|C:\\Users\\96396\\Desktop\\GamesPROJECTS\\Sherko Arena\\assets\\scripts\\spawnpointsregistry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FE3079DD-3EEB-7031-9E14-AEA2FFA7524E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\spawnpointsregistry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CodeUI.cs",
+              "DocumentMoniker": "C:\\Users\\96396\\Desktop\\GamesPROJECTS\\Sherko Arena\\Assets\\Scripts\\GUI\\CodeUI.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\GUI\\CodeUI.cs",
+              "ToolTip": "C:\\Users\\96396\\Desktop\\GamesPROJECTS\\Sherko Arena\\Assets\\Scripts\\GUI\\CodeUI.cs",
+              "RelativeToolTip": "Assets\\Scripts\\GUI\\CodeUI.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAACAAAAAwAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-20T08:49:45.876Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "SpawnPointsRegistry.cs",
+              "DocumentMoniker": "C:\\Users\\96396\\Desktop\\GamesPROJECTS\\Sherko Arena\\Assets\\Scripts\\SpawnPointsRegistry.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\SpawnPointsRegistry.cs",
+              "ToolTip": "C:\\Users\\96396\\Desktop\\GamesPROJECTS\\Sherko Arena\\Assets\\Scripts\\SpawnPointsRegistry.cs",
+              "RelativeToolTip": "Assets\\Scripts\\SpawnPointsRegistry.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABgAAABQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-20T09:23:37.974Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "GameRelay.cs",
+              "DocumentMoniker": "C:\\Users\\96396\\Desktop\\GamesPROJECTS\\Sherko Arena\\Assets\\Scripts\\GameRelay.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\GameRelay.cs",
+              "ToolTip": "C:\\Users\\96396\\Desktop\\GamesPROJECTS\\Sherko Arena\\Assets\\Scripts\\GameRelay.cs",
+              "RelativeToolTip": "Assets\\Scripts\\GameRelay.cs",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAowB4AAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-20T08:53:10.766Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+.SherkoButton {
+    height: 98px;
+    border-left-color: rgba(255, 255, 255, 0);
+    border-right-color: rgba(255, 255, 255, 0);
+    border-top-color: rgba(255, 255, 255, 0);
+    border-bottom-color: rgba(255, 255, 255, 0);
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    -unity-font: url("project://database/Assets/External/Feel/NiceVibrations/Demo/_Common/Fonts/BIG%20JOHN.otf?fileID=12800000&guid=7015f2d2ce595844e9fe6e0c3bd8d27b&type=3#BIG JOHN");
+    -unity-font-definition: initial;
+    font-size: 62px;
+    -unity-text-align: middle-center;
+    background-color: rgb(255, 180, 0);
+    -unity-text-outline-color: rgb(0, 0, 0);
+    -unity-text-outline-width: 0;
+    color: rgb(255, 255, 255);
+    text-shadow: 4px 6.9px 0 rgb(0, 0, 0);
+    justify-content: center;
+    align-items: auto;
+    align-self: auto;
+}
+
+.SherkoButton:hover {
+    height: 98px;
+    border-left-color: rgba(255, 255, 255, 0);
+    border-right-color: rgba(255, 255, 255, 0);
+    border-top-color: rgba(255, 255, 255, 0);
+    border-bottom-color: rgba(255, 255, 255, 0);
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    -unity-font: url("project://database/Assets/External/Feel/NiceVibrations/Demo/_Common/Fonts/BIG%20JOHN.otf?fileID=12800000&guid=7015f2d2ce595844e9fe6e0c3bd8d27b&type=3#BIG JOHN");
+    -unity-font-definition: initial;
+    font-size: 62px;
+    -unity-text-align: middle-center;
+    background-color: rgb(190, 134, 0);
+    -unity-text-outline-color: rgb(0, 0, 0);
+    -unity-text-outline-width: 0;
+    color: rgb(255, 255, 255);
+    text-shadow: 4px 6.9px 0 rgb(0, 0, 0);
+    justify-content: center;
+    align-items: auto;
+    align-self: auto;
+}
+
+.SherkoButton:active {
+    height: 98px;
+    border-left-color: rgba(255, 255, 255, 0);
+    border-right-color: rgba(255, 255, 255, 0);
+    border-top-color: rgba(255, 255, 255, 0);
+    border-bottom-color: rgba(255, 255, 255, 0);
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    -unity-font: url("project://database/Assets/External/Feel/NiceVibrations/Demo/_Common/Fonts/BIG%20JOHN.otf?fileID=12800000&guid=7015f2d2ce595844e9fe6e0c3bd8d27b&type=3#BIG JOHN");
+    -unity-font-definition: initial;
+    font-size: 62px;
+    -unity-text-align: middle-center;
+    background-color: rgb(108, 76, 0);
+    -unity-text-outline-color: rgb(0, 0, 0);
+    -unity-text-outline-width: 0;
+    color: rgb(255, 255, 255);
+    text-shadow: 4px 6.9px 0 rgb(0, 0, 0);
+    justify-content: center;
+    align-items: auto;
+    align-self: auto;
+}

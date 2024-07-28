@@ -11,38 +11,4 @@
 # Datasource local storage ignored files
 /dataSources/
 /dataSources.local.xml
-# =============== #
-# Unity generated #
-# =============== #
-Tmp/*
-Obj/*
-UnityGenerated/*
-Library/*
-Build/*
-Builds/*
-Logs/*
 
-# ===================================== #
-# Visual Studio / MonoDevelop generated #
-# ===================================== #
-ExportedObj/*
-*.svd
-*.userprefs
-*.csproj
-*.pidb
-*.suo
-*.sln*
-*.user
-*.unityproj
-*.booproj
-
-# ============ #
-# OS generated #
-# ============ #
-.DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
-Thumbs.db

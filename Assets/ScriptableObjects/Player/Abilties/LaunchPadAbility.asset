@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b253476bbdfd46a2bdb091d37bf98e49, type: 3}
+  m_Name: LaunchPadAbility
+  m_EditorClassIdentifier: 
+  index: 1
+  staminaCost: 35
+  placementDistance: 10
+  nonPlayersLayers:
+    serializedVersion: 2
+    m_Bits: 183
+  launchpadPrefab: {fileID: 8639951784673739977, guid: fb949abcc046e56428bcd1b4d999291c,
+    type: 3}

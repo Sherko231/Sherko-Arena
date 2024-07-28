@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 633e0f6f0fe5408797a04cdf39f8e2e1, type: 3}
+  m_Name: Blastback
+  m_EditorClassIdentifier: 
+  type: 1
+  mesh: {fileID: 2270770932230132198, guid: afe281798e4969a498ad4767197af4d2, type: 3}
+  gunHolder: {fileID: 3079410245100334546, guid: 10a86e41d682e284aa87eaebd7e4ae54,
+    type: 3}
+  characterSpecial: {fileID: 7557933833277000139, guid: 166b50a0c537fa741ae90f56e25cb186,
+    type: 3}

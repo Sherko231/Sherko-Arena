@@ -14,8 +14,6 @@ Logs/*
 # Store Assets #
 # ===================================== #
 Assets/External
-Assets/ScriptableObjects/Player/Abilities/Blastback.meta
-
 
 # ===================================== #
 # Visual Studio / MonoDevelop generated #

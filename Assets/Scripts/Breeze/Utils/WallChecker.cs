@@ -42,7 +42,12 @@ public class WallChecker : MonoBehaviour
         if (camEulerX > 90) camEulerX -= 360;
 
         Collider col = hitColliders[0];
-        if (!col) return;
+        if (!col)
+        {
+            IsWalled = false;
+            return;
+        }
+        
         Transform objTrans = col.transform;
         IEnumerable<Vector3> objDirections = GetFaceDirections(objTrans);
 

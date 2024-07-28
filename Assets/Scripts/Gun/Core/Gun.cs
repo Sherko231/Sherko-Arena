@@ -93,17 +93,12 @@ public abstract class Gun : MonoBehaviour
     //TODO : FIGURE OUT WHY FOR SHOTGUNS
     private void DetectAndDamagePlayer(GunHit gunHit)
     {
-        Debug.Log("DetectAndDamagePlayer");
         
         int hitLayer = gunHit.IsValid ? gunHit.HitObject.layer : 0;
         if (hitLayer != LayerMask.NameToLayer("Player") && hitLayer != LayerMask.NameToLayer("LocalPlayer")) return;
         
-        Debug.Log("Layer is approved");
-        
         Player target = OnlinePlayersRegistry.GetByInstanceId(gunHit.HitObject.GetInstanceID());
         if (!target.Health.IsAlive || target == player) return;
-        
-        Debug.Log("target is alive & not player");
         
         target.Health.TakeDamage(stats.Damage);
         if (target.Health.CurrentHealth <= 0) player.IncreaseKill();

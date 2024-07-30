@@ -6,6 +6,7 @@ public class PlayerNetworkRpcManager : NetworkBehaviour
     public void SendHealthDamageClientRpc(ulong playerClientId, float damage)
     {
         Player player = OnlinePlayersRegistry.Get(playerClientId);
+        if (!player.IsInitialized) return;
         player.Health.TakeDamage(damage);
     }
     
@@ -13,6 +14,7 @@ public class PlayerNetworkRpcManager : NetworkBehaviour
     public void SendDeathConfirmClientRpc(ulong playerId)
     {
         Player player = OnlinePlayersRegistry.Get(playerId);
+        if (!player.IsInitialized) return;
         if (player.Health.IsAlive) player.Health.Die();
     }
 
@@ -20,6 +22,7 @@ public class PlayerNetworkRpcManager : NetworkBehaviour
     public void SendReviveClientRpc(ulong playerId)
     {
         Player player = OnlinePlayersRegistry.Get(playerId);
+        if (!player.IsInitialized) return;
         player.Health.Fill();
     }
 
@@ -27,6 +30,7 @@ public class PlayerNetworkRpcManager : NetworkBehaviour
     public void SendPlayerShootClientRpc(ulong playerId)
     {
         Player player = OnlinePlayersRegistry.Get(playerId);
+        if (!player.IsInitialized) return;
         player.Gun.Shoot();
     }
 
@@ -34,6 +38,7 @@ public class PlayerNetworkRpcManager : NetworkBehaviour
     public void SendPlayerReloadClientRpc(ulong playerId)
     {
         Player player = OnlinePlayersRegistry.Get(playerId);
+        if (!player.IsInitialized) return;
         player.Gun.Reload();
     }
 
@@ -41,6 +46,7 @@ public class PlayerNetworkRpcManager : NetworkBehaviour
     public void SendAbilityClientRpc(ulong playerId, int index)
     {
         Player player = OnlinePlayersRegistry.Get(playerId);
+        if (!player.IsInitialized) return;
         player.PlayerAbilities.ForceExecuteAbility(index);
     }
     
@@ -48,6 +54,7 @@ public class PlayerNetworkRpcManager : NetworkBehaviour
     public void SendWallRunVfxClientRpc(ulong playerId, bool triggered)
     {
         Player player = OnlinePlayersRegistry.Get(playerId);
+        if (!player.IsInitialized) return;
         player.FX.ToggleWallRunVFX(triggered);
     }
 }

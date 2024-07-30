@@ -51,7 +51,7 @@ MonoBehaviour:
   direction: 1
   faceDetectionPrecision: 0.55
   parallelViewThreshold: 0.35
-  checkingThreshold: 45
+  checkingThreshold: 25
 --- !u!1 &1483477794762752737
 GameObject:
   m_ObjectHideFlags: 0
@@ -103,7 +103,7 @@ MonoBehaviour:
   direction: 0
   faceDetectionPrecision: 0.55
   parallelViewThreshold: 0.35
-  checkingThreshold: 45
+  checkingThreshold: 25
 --- !u!1 &2551973204218910096
 GameObject:
   m_ObjectHideFlags: 0

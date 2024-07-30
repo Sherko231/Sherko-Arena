@@ -26,7 +26,7 @@ public class Grenade : NetworkBehaviour
         public Player player;
         public float damage;
     }
-
+    
     private void Awake()
     {
         _rb = GetComponent<Rigidbody>();
@@ -89,13 +89,14 @@ public class Grenade : NetworkBehaviour
 
     private static void DamagePlayers(PlayerDamageHandler[] handlers)
     {
+        Player grenadeOwner = Player.OwnerSingleton;
         foreach (PlayerDamageHandler damageHandler in handlers)
         {
-            Player player = damageHandler.player;
+            Player target = damageHandler.player;
             float damage = damageHandler.damage;
             
-            player.Health.TakeDamage(damage);
-            player.RpcManager.SendHealthDamageClientRpc(player.Network.OwnerClientId, damage);
+            target.Health.TakeDamage(damage);
+            grenadeOwner.RpcManager.SendHealthDamageClientRpc(target.Network.OwnerClientId, damage);
         }
     } 
     

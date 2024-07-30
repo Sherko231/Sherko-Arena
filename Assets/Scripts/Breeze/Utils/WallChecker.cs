@@ -53,7 +53,7 @@ public class WallChecker : MonoBehaviour
 
         foreach (Vector3 objDir in objDirections)
         {
-            bool isLookingDownOrUp = camEulerX < -checkingThreshold || camEulerX> checkingThreshold;
+            bool isLookingDownOrUp = camEulerX < -checkingThreshold || camEulerX > checkingThreshold;
             bool isOppositeFace = Vector3.Dot(wallCheckDir, objDir) < -faceDetectionPrecision;
             bool isMovingIntoOppositeFace = Vector3.Dot(_player.MovingVec, objDir) < -faceDetectionPrecision;
             bool isLookingParallelToWall = Vector3.Dot(camForward, objDir) < parallelViewThreshold && Vector3.Dot(camForward, objDir) > -parallelViewThreshold;

@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WallChecker : MonoBehaviour
+public class SideWallChecker : MonoBehaviour
 {
     [SerializeField] private float radius = 0.7f;
     [SerializeField] private LayerMask targetLayers;

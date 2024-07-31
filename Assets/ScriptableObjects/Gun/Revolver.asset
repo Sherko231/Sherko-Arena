@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Damage: 25
   ShootInterval: 0.5
-  AmmoCapacity: 6
+  AmmoCapacity: 12
   MissBulletDist: 120
   ReloadTime: 0.35

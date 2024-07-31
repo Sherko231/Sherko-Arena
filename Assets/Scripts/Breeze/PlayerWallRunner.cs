@@ -1,9 +1,11 @@
 using Sherko.Utils;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class PlayerWallRunner : MonoBehaviour
 {
-    [SerializeField] private WallChecker wallCheckerL, wallCheckerR;
+    [FormerlySerializedAs("wallCheckerL")] [SerializeField] private SideWallChecker sideWallCheckerL;
+    [FormerlySerializedAs("wallCheckerR")] [SerializeField] private SideWallChecker sideWallCheckerR;
     [SerializeField] private float tiltAmount = 25f;
     [SerializeField] private float tiltSpeed = 5f;
     [SerializeField] private float wallRunSpeed = 1.5f;
@@ -11,13 +13,13 @@ public class PlayerWallRunner : MonoBehaviour
     private ValueTransferer _camRotZTransferer;
     private bool _isParticlePlaying;
 
-    private bool _IsTouchingAnyWall => wallCheckerL.IsWalled || wallCheckerR.IsWalled;
+    private bool _IsTouchingAnyWall => sideWallCheckerL.IsWalled || sideWallCheckerR.IsWalled;
 
     private void Awake()
     {
         _player = GetComponentInParent<Player>();
-        wallCheckerL.Init(_player);
-        wallCheckerR.Init(_player);
+        sideWallCheckerL.Init(_player);
+        sideWallCheckerR.Init(_player);
         _camRotZTransferer = new(_player.CamPoint.rotation.eulerAngles.z, tiltSpeed);
     }
 
@@ -41,8 +43,8 @@ public class PlayerWallRunner : MonoBehaviour
     private void HandleCamTilting()
     {
         float eulerRotZ;
-        if (wallCheckerL.IsWalled) eulerRotZ = _camRotZTransferer.SmoothTransfer(-tiltAmount);
-        else if (wallCheckerR.IsWalled) eulerRotZ = _camRotZTransferer.SmoothTransfer(tiltAmount);
+        if (sideWallCheckerL.IsWalled) eulerRotZ = _camRotZTransferer.SmoothTransfer(-tiltAmount);
+        else if (sideWallCheckerR.IsWalled) eulerRotZ = _camRotZTransferer.SmoothTransfer(tiltAmount);
         else eulerRotZ = _camRotZTransferer.SmoothReset();
         SetZRot(eulerRotZ);
     }

@@ -41,7 +41,7 @@ public class Player : MonoBehaviour
     public bool IsMoving => Rb.velocity.magnitude > 0.1f && IsGrounded;
     public bool IsSprinting { get; private set; }
     public bool IsSneaking { get; private set; }
-    public bool IsInitialized { get; private set; } = false;
+    public bool IsInitialized { get; private set; }
 
     public Vector3 MovingVec
     {

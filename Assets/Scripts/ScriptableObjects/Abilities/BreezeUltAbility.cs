@@ -8,8 +8,6 @@ using UnityEngine.Rendering.Universal;
 [CreateAssetMenu(fileName = "BreezeUltAbility", menuName = "Abilities/BreezeUltAbility")]
 public class BreezeUltAbility : PlayerAbility
 {
-    [SerializeField] [Tooltip("In Sec")] 
-    private float duration = 10f;
     [Title("VFX Settings")]
     [SerializeField] private VolumeProfile volume;
     [SerializeField] private float ultVignetteIntensity, ultVignetteSmoothness;
@@ -41,8 +39,7 @@ public class BreezeUltAbility : PlayerAbility
                 vignette.color.value = ultVignetteColor;
             }
         }
-
-        player.StartCoroutine(StartAbilityTimer(player));
+        
     }
 
     public override void TerminateAbility(Player player)
@@ -57,10 +54,5 @@ public class BreezeUltAbility : PlayerAbility
         player.FX.BreezeUltVFX.Stop();
         base.TerminateAbility(player);
     }
-
-    private IEnumerator StartAbilityTimer(Player player)
-    {
-        yield return new WaitForSeconds(duration);
-        TerminateAbility(player);
-    }
+    
 }

@@ -42,6 +42,7 @@ public class Player : MonoBehaviour
     public bool IsSprinting { get; private set; }
     public bool IsSneaking { get; private set; }
     public bool IsInitialized { get; private set; }
+    public bool CanMove { get; set; }
 
     public Vector3 MovingVec
     {
@@ -97,6 +98,7 @@ public class Player : MonoBehaviour
 
     public void Move(Vector2 moveVec)
     {
+        if (!CanMove) return;
         Transform t = transform;
 
         float speed = 

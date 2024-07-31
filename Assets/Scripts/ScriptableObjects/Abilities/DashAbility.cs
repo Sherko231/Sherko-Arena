@@ -20,8 +20,14 @@ public class DashAbility : PlayerAbility
         Instantiate(particlePrefab, player.transform.position, Quaternion.identity, player.transform);
         if (player.Network.IsOwner)
         {
+            player.CanMove = false;
             player.Rb.AddForce(player.MovingVec * dashPower, ForceMode.Impulse);
         }
     }
-    
+
+    public override void TerminateAbility(Player player)
+    {
+        player.CanMove = true;
+        base.TerminateAbility(player);
+    }
 }

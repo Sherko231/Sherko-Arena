@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using Sherko.Utils;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 public abstract class PlayerAbility : ScriptableObject
@@ -10,6 +11,10 @@ public abstract class PlayerAbility : ScriptableObject
     [SerializeField] private int index;
     [SerializeField] protected float staminaCost = 25f;
     [SerializeField] protected float reuseDelay = 1.5f;
+    
+    [SerializeField] private bool hasDuration;
+    [SerializeField, SuffixLabel("Sec"), ShowIf(nameof(hasDuration))] 
+    protected float duration;
     
     public event Action OnExecution;
     public event Action OnOwnerExecution;
@@ -27,7 +32,8 @@ public abstract class PlayerAbility : ScriptableObject
             player.StartCoroutine(StartReactivationTimer());
             OnOwnerExecution?.Invoke();
         }
-        
+
+        player.StartCoroutine(StartAbilityTimer(player));
         OnExecution?.Invoke();
     }
 
@@ -51,6 +57,12 @@ public abstract class PlayerAbility : ScriptableObject
         yield return new WaitForSeconds(reuseDelay);
         CanUse = true;
         OnReactivate?.Invoke();
+    }
+    
+    private IEnumerator StartAbilityTimer(Player player)
+    {
+        yield return new WaitForSeconds(duration);
+        TerminateAbility(player);
     }
     
 }

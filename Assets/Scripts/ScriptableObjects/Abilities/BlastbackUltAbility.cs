@@ -8,7 +8,6 @@ using UnityEngine.Rendering.Universal;
 [CreateAssetMenu(fileName = "BlastbackUltAbility", menuName = "Abilities/BlastbackUltAbility", order = 0)]
 public class BlastbackUltAbility : PlayerAbility
 {
-    [SerializeField] [Tooltip("In Sec")] private float duration = 10f;
     [SerializeField] private float ultDamageMultiplier = 3f;
     [SerializeField] private float ultVignetteIntensity, ultVignetteSmoothness;
     [SerializeField] private Color ultVignetteColor = new(1f, 0.58f, 0.02f);
@@ -49,7 +48,6 @@ public class BlastbackUltAbility : PlayerAbility
             }
         }
         
-        player.StartCoroutine(StartAbilityTimer(player));
     }
 
     public override void TerminateAbility(Player player)
@@ -67,11 +65,5 @@ public class BlastbackUltAbility : PlayerAbility
 
         player.Gun.Stats.Damage = _initGunDamage;
         base.TerminateAbility(player);
-    }
-    
-    private IEnumerator StartAbilityTimer(Player player)
-    {
-        yield return new WaitForSeconds(duration);
-        TerminateAbility(player);
     }
 }

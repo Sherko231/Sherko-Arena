@@ -1,9 +1,10 @@
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Character", menuName = "Character", order = 0)]
 public class Character : ScriptableObject
 {
-    [SerializeField] private CharacterType type;
+    [EnumToggleButtons] [SerializeField] private CharacterType type;
     [SerializeField] private GameObject mesh;
     [SerializeField] private GameObject gunHolder;
     [SerializeField] private GameObject characterSpecial;

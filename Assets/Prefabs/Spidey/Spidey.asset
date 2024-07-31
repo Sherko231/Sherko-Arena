@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 633e0f6f0fe5408797a04cdf39f8e2e1, type: 3}
+  m_Name: Spidey
+  m_EditorClassIdentifier: 
+  type: 2
+  mesh: {fileID: 6108324609520686225, guid: e34d5a8e7920dd74a8e8497a8ae87b3d, type: 3}
+  gunHolder: {fileID: 3079410245100334546, guid: 3120d49479b17c941acd4f26ddfed1ad,
+    type: 3}
+  characterSpecial: {fileID: 2551973204218910096, guid: 0683cb9049fbf9d4ea98d5a234f0f04e,
+    type: 3}

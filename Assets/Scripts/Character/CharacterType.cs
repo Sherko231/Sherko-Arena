@@ -1,5 +1,6 @@
 public enum CharacterType
 {
     Breeze,
-    Blastback
+    Blastback,
+    Spidey
 }

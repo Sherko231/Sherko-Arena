@@ -1,3 +1,4 @@
+using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Pool;
 
@@ -8,7 +9,7 @@ public class BulletTrailPool : MonoBehaviour
     [Header("Pool Settings")]
     [SerializeField] private int defaultCapacity = 20;
     [SerializeField] private int maxSize = 100;
-    [SerializeField] private BulletTrailPoolType type;
+    [EnumToggleButtons] [SerializeField] private BulletTrailPoolType type;
     
     public ObjectPool<TrailRenderer> Pool { get; private set; }
     public BulletTrailPoolType Type => type;
@@ -46,5 +47,6 @@ public enum BulletTrailPoolType
 {
     LightRifle,
     HeavyRifle,
-    Shotgun
+    Shotgun,
+    Revolver
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class BulletTrailPoolRegistry : MonoBehaviour
 {
-    public static BulletTrailPoolRegistry I { get; private set; }
+    public static BulletTrailPoolRegistry I { get; private set; } //todo : auto populate
     
     [SerializeField] private List<BulletTrailPool> pools;
 

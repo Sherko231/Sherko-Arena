@@ -94,10 +94,10 @@ public abstract class Gun : MonoBehaviour
     {
         int hitLayer = gunHit.IsValid ? gunHit.HitObject.layer : 0;
         if (hitLayer != LayerMask.NameToLayer("Player") && hitLayer != LayerMask.NameToLayer("LocalPlayer")) return;
-        Debug.Log("Layers");
+        
         Player target = OnlinePlayersRegistry.GetByInstanceId(gunHit.HitObject.GetInstanceID());
         if (!target.Health.IsAlive || target == player) return;
-        Debug.Log("Player detected");
+        
         target.Health.TakeDamage(stats.Damage);
         if (target.Health.CurrentHealth <= 0) player.IncreaseKill();
         player.RpcManager.SendHealthDamageClientRpc(target.Network.OwnerClientId, stats.Damage); //might be network heavy in for loop, keep in mind : (maybe more than one target)

@@ -1,9 +1,8 @@
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
-using Unity.Netcode;
 using UnityEngine;
 
-public class Grenade : NetworkBehaviour
+public class Grenade : MonoBehaviour
 {
     [TabGroup("Radius")] [SerializeField] private float highDmgRadius = 2f;
     [TabGroup("Radius")] [SerializeField] private float mediumDmgRadius = 3.5f;

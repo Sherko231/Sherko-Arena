@@ -14,7 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   index: 2
   staminaCost: 100
+  reuseDelay: 1.5
+  hasDuration: 1
   duration: 10
   volume: {fileID: 11400000, guid: a6560a915ef98420e9faacc1c7438823, type: 2}
   ultVignetteIntensity: 0.3
   ultVignetteSmoothness: 0.9
+  ultVignetteColor: {r: 0, g: 1, b: 1, a: 1}

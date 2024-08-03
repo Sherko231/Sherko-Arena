@@ -25,6 +25,7 @@ public class WallClimber : MonoBehaviour
 
     private void Climb()
     {
+        if (!_player.Network.IsOwner) return;
         Rigidbody playerRB = _player.Rb;
         Vector3 moveVec = _player.Controller.MoveVec;
         Vector3 moveY = climbSpeed * moveVec.y * _player.transform.up;

@@ -42,7 +42,7 @@ public class Player : MonoBehaviour
     public bool IsSprinting { get; private set; }
     public bool IsSneaking { get; private set; }
     public bool IsInitialized { get; private set; }
-    public bool CanMove { get; set; }
+    public bool CanMove { get; set; } = true;
 
     public Vector3 MovingVec
     {

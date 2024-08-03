@@ -15,8 +15,10 @@ MonoBehaviour:
   index: 2
   staminaCost: 100
   reuseDelay: 1.5
+  hasDuration: 1
   duration: 10
   ultDamageMultiplier: 3
   ultVignetteIntensity: 0.3
   ultVignetteSmoothness: 0.9
+  ultVignetteColor: {r: 1, g: 0.58, b: 0.02, a: 1}
   volume: {fileID: 11400000, guid: a6560a915ef98420e9faacc1c7438823, type: 2}

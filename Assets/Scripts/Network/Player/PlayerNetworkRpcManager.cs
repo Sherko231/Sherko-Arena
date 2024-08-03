@@ -1,4 +1,6 @@
+using System.Collections;
 using Unity.Netcode;
+using UnityEngine;
 
 public class PlayerNetworkRpcManager : NetworkBehaviour
 {
@@ -56,5 +58,20 @@ public class PlayerNetworkRpcManager : NetworkBehaviour
         Player player = OnlinePlayersRegistry.Get(playerId);
         if (!player.IsInitialized) return;
         player.FX.ToggleWallRunVFX(triggered);
+    }
+    
+    [Rpc(SendTo.NotOwner)]
+    public void SendStickClientRpc(ulong playerId, float duration)
+    {
+        Player player = OnlinePlayersRegistry.Get(playerId);
+        if (!player.IsInitialized) return;
+        player.Controller.ControlsDisabled = true;
+        player.StartCoroutine(StartStickTimer(player, duration));
+    }
+
+    private static IEnumerator StartStickTimer(Player player, float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        player.Controller.ControlsDisabled = false;
     }
 }

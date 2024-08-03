@@ -9,14 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92c2a50cc59445ce891054c08c430d81, type: 3}
-  m_Name: DashAbility
+  m_Script: {fileID: 11500000, guid: c5761365f8974ce6805955448ac3167b, type: 3}
+  m_Name: WebShotAbility
   m_EditorClassIdentifier: 
   index: 0
   staminaCost: 25
-  reuseDelay: 0.4
-  hasDuration: 1
-  duration: 0.2
-  dashPower: 100
-  particlePrefab: {fileID: 8137219129651068495, guid: 0ffa57187a081ef4a8f5df2a04903997,
+  reuseDelay: 1.5
+  hasDuration: 0
+  duration: 0
+  webPrefab: {fileID: 5330148060109249169, guid: 6c71616ea220e2342abce5f0c7a7c04b,
     type: 3}
+  launchPower: 40

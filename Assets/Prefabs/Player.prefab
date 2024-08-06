@@ -5410,6 +5410,38 @@ Transform:
   - {fileID: 6388081061997150151}
   m_Father: {fileID: 4509484202182858737}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5724175126828922658
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6751970528857071068}
+  m_Layer: 3
+  m_Name: Spidey
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6751970528857071068
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5724175126828922658}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2203291867266830334}
+  m_Father: {fileID: 4509484202182858737}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6063366737499320136
 GameObject:
   m_ObjectHideFlags: 0
@@ -5803,6 +5835,7 @@ MonoBehaviour:
   wallRunVFX: {fileID: 8356382272941853226}
   breezeUltVFX: {fileID: 5633561074871405585}
   blastbackUltVFX: {fileID: 7921302975558057609}
+  spideyUltVFX: {fileID: 6437060694314302968}
   fovChangeSpeed: 10
   fovChangeMultiplier: 1.3
 --- !u!114 &5792511201312692936
@@ -6086,6 +6119,7 @@ Transform:
   - {fileID: 3100038055630582038}
   - {fileID: 3619136973833310125}
   - {fileID: 5695750201072186888}
+  - {fileID: 6751970528857071068}
   m_Father: {fileID: 3706109767801044308}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8113599279328870602
@@ -6507,4 +6541,99 @@ ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 878481786759301155, guid: 523f03bbcc7f04f4a931d93fe56e7ea7,
     type: 3}
   m_PrefabInstance: {fileID: 4764407586413724722}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &4898520350640801509
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 6751970528857071068}
+    m_Modifications:
+    - target: {fileID: 5380252482505742154, guid: bc0fc7746e3090f42ad9a6896a5994ef,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 0.6509804
+      objectReference: {fileID: 0}
+    - target: {fileID: 5380252482505742154, guid: bc0fc7746e3090f42ad9a6896a5994ef,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5380252482505742154, guid: bc0fc7746e3090f42ad9a6896a5994ef,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 0.47005698
+      objectReference: {fileID: 0}
+    - target: {fileID: 6327263575056395102, guid: bc0fc7746e3090f42ad9a6896a5994ef,
+        type: 3}
+      propertyPath: m_Name
+      value: SpideyUltVFX
+      objectReference: {fileID: 0}
+    - target: {fileID: 6730805606506416411, guid: bc0fc7746e3090f42ad9a6896a5994ef,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6730805606506416411, guid: bc0fc7746e3090f42ad9a6896a5994ef,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6730805606506416411, guid: bc0fc7746e3090f42ad9a6896a5994ef,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6730805606506416411, guid: bc0fc7746e3090f42ad9a6896a5994ef,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6730805606506416411, guid: bc0fc7746e3090f42ad9a6896a5994ef,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6730805606506416411, guid: bc0fc7746e3090f42ad9a6896a5994ef,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6730805606506416411, guid: bc0fc7746e3090f42ad9a6896a5994ef,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6730805606506416411, guid: bc0fc7746e3090f42ad9a6896a5994ef,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 6730805606506416411, guid: bc0fc7746e3090f42ad9a6896a5994ef,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6730805606506416411, guid: bc0fc7746e3090f42ad9a6896a5994ef,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: bc0fc7746e3090f42ad9a6896a5994ef, type: 3}
+--- !u!4 &2203291867266830334 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6730805606506416411, guid: bc0fc7746e3090f42ad9a6896a5994ef,
+    type: 3}
+  m_PrefabInstance: {fileID: 4898520350640801509}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &6437060694314302968 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 1922477211274459933, guid: bc0fc7746e3090f42ad9a6896a5994ef,
+    type: 3}
+  m_PrefabInstance: {fileID: 4898520350640801509}
   m_PrefabAsset: {fileID: 0}

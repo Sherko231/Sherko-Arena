@@ -1,3 +1,4 @@
+using Sherko.Utils;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -9,6 +10,14 @@ public class WebShotAbility : PlayerAbility
     [Title("Settings")]
     [SerializeField] private float launchPower = 10f;
 
+    public override bool CanBeUsed(PlayerStamina stamina)
+    {
+        Consumer consumer = stamina.Consumer;
+        bool hasEnoughStamina = consumer.Current >= staminaCost;
+        bool isUlting = stamina.IsUnlimited && consumer.Current < consumer.Capacity;
+        return (hasEnoughStamina || isUlting) && CanUse;
+    }
+    
     protected override void ExecuteAbility(Player player)
     {
         Vector3 shootPoint = player.CamPoint.position + player.transform.forward * 3;

@@ -112,7 +112,7 @@ public class PlayerController : MonoBehaviour
 
     private void BlockInputProcess()
     {
-        _moveVec = _mouseVec = Vector2.zero;
+        _moveVec = Vector2.zero;
         _sprintPressed = _sneakPressed = _jumpPressed = false;
     }
 }

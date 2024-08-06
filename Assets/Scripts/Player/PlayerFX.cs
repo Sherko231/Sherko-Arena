@@ -10,6 +10,8 @@ public class PlayerFX : MonoBehaviour
     [SerializeField] private ParticleSystem breezeUltVFX;
     [Title("Blastback")]
     [SerializeField] private ParticleSystem blastbackUltVFX;
+    [Title("Spidey")]
+    [SerializeField] private ParticleSystem spideyUltVFX;
     [Title("SprintFX")]
     [SerializeField] private float fovChangeSpeed = 2f;
     [SerializeField] private float fovChangeMultiplier = 1.3f;
@@ -19,6 +21,7 @@ public class PlayerFX : MonoBehaviour
 
     public ParticleSystem BreezeUltVFX => breezeUltVFX;
     public ParticleSystem BlastbackUltVFX => blastbackUltVFX;
+    public ParticleSystem SpideyUltVfx => spideyUltVFX;
 
     private void Awake()
     {

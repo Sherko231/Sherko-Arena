@@ -16,6 +16,7 @@ public class GrappleGun : MonoBehaviour
     private readonly List<Coroutine> r_grappleTimerCoroutines = new();
     
     private Vector3 _grappleHit = Vector3.zero;
+    private Coroutine _previousPullCoroutine;
     private Player _player;
     private bool _canGrapple;
 
@@ -29,9 +30,12 @@ public class GrappleGun : MonoBehaviour
         bool isHit = Physics.Raycast(_player.CamPoint.position, _player.LookingVec, out RaycastHit hit, 120f);
         _grappleHit = isHit ? hit.point : Vector3.zero;
         if (!isHit) return;
-        Coroutine coroutine = _player.StartCoroutine(StartGrappleTimer());
-        r_grappleTimerCoroutines.Add(coroutine);
-        _player.StartCoroutine(PullTowardsGrappleHit(hit.point));
+        
+        Coroutine timerCoroutine = _player.StartCoroutine(StartGrappleTimer());
+        r_grappleTimerCoroutines.Add(timerCoroutine);
+        
+        if (_previousPullCoroutine != null) _player.StopCoroutine(_previousPullCoroutine);
+        _previousPullCoroutine = _player.StartCoroutine(PullTowardsGrappleHit(hit.point));
     }
 
     private void LateUpdate()

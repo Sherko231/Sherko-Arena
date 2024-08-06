@@ -51,7 +51,7 @@ MonoBehaviour:
   Abilities:
   - {fileID: 11400000, guid: 8127e7da64e87d94dadcb5ce140b3514, type: 2}
   - {fileID: 11400000, guid: 11425376b1b00774aa4e7c38fbeddab5, type: 2}
-  - {fileID: 11400000, guid: 33242d6d96f29884583a794e6d3b4ee2, type: 2}
+  - {fileID: 11400000, guid: 202c540c36d4b904789e5abd1fa7aac4, type: 2}
 --- !u!114 &8516908303947549526
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -82,7 +82,7 @@ MonoBehaviour:
   grappleRenderer: {fileID: 1297259837939365808}
   grappleResetRadius: 2
   grappleSpeed: 20
-  grappleMaxTime: 5
+  grappleMaxTime: 2
 --- !u!1 &5461668816282002080
 GameObject:
   m_ObjectHideFlags: 0

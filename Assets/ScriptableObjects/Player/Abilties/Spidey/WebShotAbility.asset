@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   index: 0
   staminaCost: 25
-  reuseDelay: 1.5
+  reuseDelay: 0
   hasDuration: 0
   duration: 0
   webPrefab: {fileID: 5330148060109249169, guid: 6c71616ea220e2342abce5f0c7a7c04b,

@@ -80,7 +80,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grappleRenderer: {fileID: 1297259837939365808}
-  grappleResetRadius: 3
+  grappleResetRadius: 2
+  grappleSpeed: 20
+  grappleMaxTime: 5
 --- !u!1 &5461668816282002080
 GameObject:
   m_ObjectHideFlags: 0

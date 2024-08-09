@@ -203,7 +203,7 @@ public class Player : MonoBehaviour
         gunLinker.Init();
         
         Health.DisabledObjectsOnDeath.Add(Mesh);
-        Health.DisabledObjectsOnDeath.Add(gunLinker.gameObject);
+        Health.DisabledObjectsOnDeath.Add(Gun.transform.GetChild(0).gameObject); //TASLEEK :)
         
         Network.Init();
         

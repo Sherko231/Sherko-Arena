@@ -420,7 +420,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7975677178389756366}
   m_Layer: 0
-  m_Name: Light Rifle
+  m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

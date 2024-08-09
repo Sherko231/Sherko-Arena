@@ -15,7 +15,6 @@ public class BlastbackUltAbility : PlayerAbility
     [SerializeField] private VolumeProfile volume;
     
     private float _initVignetteIntensity, _initVignetteSmoothness;
-    private float _initGunDamage;
     private Color _initVignetteColor;
 
     public override bool CanBeUsed(PlayerStamina stamina)
@@ -33,9 +32,6 @@ public class BlastbackUltAbility : PlayerAbility
         {
             ShotgunRecoilHandler recoilHandler = player.CharacterSpecial.GetComponent<ShotgunRecoilHandler>();
             recoilHandler.IsUlt = true;
-            
-            _initGunDamage = player.Gun.Stats.Damage;
-            player.Gun.Stats.Damage *= ultDamageMultiplier;
             
             if (volume.TryGet(out Vignette vignette))
             {
@@ -62,8 +58,7 @@ public class BlastbackUltAbility : PlayerAbility
         player.FX.BlastbackUltVFX.Stop();
         ShotgunRecoilHandler recoilHandler = player.CharacterSpecial.GetComponent<ShotgunRecoilHandler>();
         recoilHandler.IsUlt = false;
-
-        player.Gun.Stats.Damage = _initGunDamage;
+        
         base.TerminateAbility(player);
     }
 }

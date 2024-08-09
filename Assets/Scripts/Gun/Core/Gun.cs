@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using Sherko.Utils;
 using UnityEngine;
 
@@ -34,7 +35,19 @@ public abstract class Gun : MonoBehaviour
 
     protected abstract TypedTrailRenderer CreateGunTrail();
     protected abstract GunHit[] ShootRay();
-
+    
+    private class GunHitInfo
+    {
+        public GunHitInfo(ulong targetClientID, float damage)
+        {
+            TargetClientID = targetClientID;
+            Damage = damage;
+        }
+        
+        public ulong TargetClientID { get; private set; }
+        public float Damage { get; private set; }
+    }
+    
     protected void Awake()
     {
         _animator = GetComponent<Animator>();
@@ -55,13 +68,16 @@ public abstract class Gun : MonoBehaviour
         if (!_canShoot) return;
 
         GunHit[] gunHits = ShootRay();
+        List<GunHitInfo> gunHitInfos = new();
         foreach (GunHit gunHit in gunHits)
         {
             if (debug) Debug.DrawRay(shootPoint.position, gunHit.ShootDirection * 100, Color.red, 1);
-            
+
             if (player.Network.IsOwner)
             {
-                DetectAndDamagePlayer(gunHit);
+                //DetectAndDamagePlayer(gunHit);
+                GunHitInfo info = DetectPlayersToDamage(gunHit);
+                if (info != null) gunHitInfos.Add(info);
             }
             
             VisualizeShoot(gunHit);
@@ -69,6 +85,9 @@ public abstract class Gun : MonoBehaviour
 
         if (player.Network.IsOwner)
         {
+            Dictionary<ulong, float> damagePairs = CalculateDamages(gunHitInfos);
+            player.StartCoroutine(DamagePlayers(damagePairs));
+            
             player.RpcManager.SendPlayerShootClientRpc(playerClientId);
             OnShootOwner?.Invoke();
         }
@@ -90,17 +109,62 @@ public abstract class Gun : MonoBehaviour
         }
     }
     
-    private void DetectAndDamagePlayer(GunHit gunHit) 
+    // private void DetectAndDamagePlayer(GunHit gunHit) 
+    // {
+    //     int hitLayer = gunHit.IsValid ? gunHit.HitObject.layer : 0;
+    //     if (hitLayer != LayerMask.NameToLayer("Player") && hitLayer != LayerMask.NameToLayer("LocalPlayer")) return;
+    //     
+    //     Player target = OnlinePlayersRegistry.GetByInstanceId(gunHit.HitObject.GetInstanceID());
+    //     if (!target.Health.IsAlive || target == player) return;
+    //     
+    //     target.Health.TakeDamage(stats.Damage);
+    //     if (target.Health.CurrentHealth <= 0) player.IncreaseKill();
+    //     player.RpcManager.SendHealthDamageClientRpc(target.Network.OwnerClientId, stats.Damage); // network heavy in for loop, keep in mind : (maybe more than one target)
+    // }
+    
+    private GunHitInfo DetectPlayersToDamage(GunHit gunHit) 
     {
         int hitLayer = gunHit.IsValid ? gunHit.HitObject.layer : 0;
-        if (hitLayer != LayerMask.NameToLayer("Player") && hitLayer != LayerMask.NameToLayer("LocalPlayer")) return;
+        if (hitLayer != LayerMask.NameToLayer("Player") && hitLayer != LayerMask.NameToLayer("LocalPlayer")) return null;
         
         Player target = OnlinePlayersRegistry.GetByInstanceId(gunHit.HitObject.GetInstanceID());
-        if (!target.Health.IsAlive || target == player) return;
-        
-        target.Health.TakeDamage(stats.Damage);
-        if (target.Health.CurrentHealth <= 0) player.IncreaseKill();
-        player.RpcManager.SendHealthDamageClientRpc(target.Network.OwnerClientId, stats.Damage); //might be network heavy in for loop, keep in mind : (maybe more than one target)
+        if (!target.Health.IsAlive || target == player) return null;
+
+        return new GunHitInfo(target.Network.OwnerClientId, stats.Damage);
+    }
+
+    private Dictionary<ulong, float> CalculateDamages(List<GunHitInfo> gunHitInfos)
+    {
+        Dictionary<ulong, float> damagePairs = new();
+
+        foreach (GunHitInfo gunHitInfo in gunHitInfos)
+        {
+            if (damagePairs.TryGetValue(gunHitInfo.TargetClientID, out float previousDamage))
+            {
+                damagePairs[gunHitInfo.TargetClientID] = gunHitInfo.Damage + previousDamage;
+            }
+            else
+            {
+                damagePairs.Add(gunHitInfo.TargetClientID, gunHitInfo.Damage);
+            }
+            
+        }
+
+        return damagePairs;
+    }
+
+    private IEnumerator DamagePlayers(Dictionary<ulong, float> damagePairs)
+    {
+        foreach (KeyValuePair<ulong, float> pair in damagePairs)
+        {
+            Player target = OnlinePlayersRegistry.Get(pair.Key);
+            
+            target.Health.TakeDamage(pair.Value);
+            if (target.Health.CurrentHealth <= 0) player.IncreaseKill();
+            player.RpcManager.SendHealthDamageClientRpc(target.Network.OwnerClientId, pair.Value); // network heavy in for loop, keep in mind : (maybe more than one target)
+            Debug.Log("HealthRPC sent : " + pair.Value);
+            yield return new WaitForEndOfFrame();
+        }
     }
     
     private void VisualizeShoot(GunHit gunHit)

@@ -1637,6 +1637,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1000013357413722, guid: 0abab5bb77339e4428787a870eb31bd3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3171,7 +3175,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: v0.2.2
+  m_text: v0.2.3
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3661,7 +3665,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d72521c07ab7d94ab4527c708970b6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tmp: {fileID: 1620159643}
 --- !u!1 &904916048
 GameObject:
   m_ObjectHideFlags: 0
@@ -5054,6 +5057,7 @@ GameObject:
   - component: {fileID: 1620159641}
   - component: {fileID: 1620159644}
   - component: {fileID: 1620159643}
+  - component: {fileID: 1620159645}
   m_Layer: 5
   m_Name: CodeUI
   m_TagString: Untagged
@@ -5177,6 +5181,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1620159640}
   m_CullTransparentMesh: 1
+--- !u!114 &1620159645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1620159640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9028bcb497c4eae8c1961f98fccab87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1650475550 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3048058210271975310, guid: d59bb317e0859f54fbae753a21dc08e3,
@@ -5834,10 +5850,10 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 555604392}
   - {fileID: 325627238}
   - {fileID: 1822313954}
   - {fileID: 1990722850}
-  - {fileID: 555604392}
   - {fileID: 1199377314}
   - {fileID: 351726581}
   - {fileID: 304231731}

@@ -1,5 +1,4 @@
 using System;
-using TMPro;
 using Unity.Netcode;
 using Unity.Netcode.Transports.UTP;
 using Unity.Networking.Transport.Relay;
@@ -14,9 +13,8 @@ public class GameRelay : MonoBehaviour
     public static GameRelay Instance { get; private set; }
     public string JoinCode { get; private set; }
 
+    public event Action OnHost;
     public event Action OnJoin;
-    
-    [SerializeField] private TMP_Text tmp;
 
     private void Awake() => Instance = this;
 
@@ -42,7 +40,7 @@ public class GameRelay : MonoBehaviour
             RelayServerData relayServerData = new(allocation, "dtls");
             NetworkManager.Singleton.GetComponent<UnityTransport>().SetRelayServerData(relayServerData);
             NetworkManager.Singleton.StartHost();
-            tmp.text = "Code : " + JoinCode;
+            OnHost?.Invoke();
         }
         catch (RelayServiceException e)
         {
@@ -57,11 +55,10 @@ public class GameRelay : MonoBehaviour
         {
             Debug.Log("Joining Relay with : " + joinCode);
             JoinAllocation allocation = await RelayService.Instance.JoinAllocationAsync(joinCode);
-
+            JoinCode = joinCode;
             RelayServerData relayServerData = new(allocation, "dtls");
             NetworkManager.Singleton.GetComponent<UnityTransport>().SetRelayServerData(relayServerData);
             NetworkManager.Singleton.StartClient();
-            tmp.text = "Code : " + JoinCode;
             Debug.Log("Joined Relay with : " + joinCode);
             OnJoin?.Invoke();
         }

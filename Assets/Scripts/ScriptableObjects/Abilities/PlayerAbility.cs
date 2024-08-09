@@ -8,7 +8,7 @@ public abstract class PlayerAbility : ScriptableObject
 {
     public float StaminaCost => staminaCost;
 
-    [SerializeField] private int index;
+    [SerializeField] [Range(0, 2)] private int index; //for networking
     [SerializeField] protected float staminaCost = 25f;
     [SerializeField] protected float reuseDelay = 1.5f;
     
@@ -33,8 +33,8 @@ public abstract class PlayerAbility : ScriptableObject
             OnOwnerExecution?.Invoke();
         }
 
-        player.StartCoroutine(StartAbilityTimer(player));
         OnExecution?.Invoke();
+        if (player.gameObject.activeSelf) player.StartCoroutine(StartAbilityTimer(player));
     }
 
     protected abstract void ExecuteAbility(Player player);

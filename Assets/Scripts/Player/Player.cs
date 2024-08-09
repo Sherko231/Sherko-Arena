@@ -18,7 +18,7 @@ public class Player : MonoBehaviour
     private Character _characterData;
 
     public event Action OnKillChange;
-    public event Action OnInitilized;
+    public event Action OnInitialized;
 
     public Transform CamPoint => camPoint;
     public Gun Gun { get; private set; }
@@ -220,7 +220,7 @@ public class Player : MonoBehaviour
         
         Controller.ControlsDisabled = false;
         IsInitialized = true;
-        OnInitilized?.Invoke();
+        OnInitialized?.Invoke();
     }
 
     private void OnSelectionSet(CharacterType value, CharacterType newValue)

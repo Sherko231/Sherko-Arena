@@ -22,7 +22,7 @@ public class ShotgunRecoilHandler : MonoBehaviour
     private void Awake()
     {
         _player = GetComponentInParent<Player>();
-        _player.OnInitilized += Init;
+        _player.OnInitialized += Init;
     }
 
     private void Init()
@@ -34,7 +34,7 @@ public class ShotgunRecoilHandler : MonoBehaviour
     private void OnDisable()
     {
         _gun.OnShootOwner -= OnShoot;
-        _player.OnInitilized -= Init;
+        _player.OnInitialized -= Init;
     }
 
     private void OnShoot()

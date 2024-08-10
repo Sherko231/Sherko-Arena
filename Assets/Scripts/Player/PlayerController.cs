@@ -27,9 +27,8 @@ public class PlayerController : MonoBehaviour
     { 
         if (!c.started) return;
         if (!_player.Network.IsOwner) return;
-        SherkoUtils.ToggleCursor(!SherkoUtils.IsCursorVisible);
-        NetworkManager.Singleton.Shutdown();
-        JoinUI.Instance.ToggleUI(!JoinUI.Instance.Toggled);
+        if (_player.Network.IsHost) _player.RpcManager.SendPauseAndDisconnectClientRpc();
+        PlayerNetwork.PauseAndDisconnect();
     }
     
     public void OnMove(InputAction.CallbackContext c)

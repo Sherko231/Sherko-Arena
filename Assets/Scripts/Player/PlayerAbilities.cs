@@ -20,7 +20,6 @@ public class PlayerAbilities : MonoBehaviour
 
         if (!ability.CanBeUsed(_stamina))
         {
-            Debug.Log("can't be used! ");
             return;
         }
         

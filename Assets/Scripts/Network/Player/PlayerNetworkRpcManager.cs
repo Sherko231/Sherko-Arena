@@ -70,16 +70,16 @@ public class PlayerNetworkRpcManager : NetworkBehaviour
     }
 
     [Rpc(SendTo.NotOwner)]
-    public void SendDmgIndClientRpc(ulong playerId, int dmgIndPos)
+    public void SendPauseAndDisconnectClientRpc()
     {
-        Player player = OnlinePlayersRegistry.Get(playerId);
-        if (!player.IsInitialized) return;
-        
+        PlayerNetwork.PauseAndDisconnect();
     }
 
     private static IEnumerator StartStickTimer(Player player, float duration)
     {
+        player.FX.ToggleWebbedMesh(true);
         yield return new WaitForSeconds(duration);
         player.Controller.ControlsDisabled = false;
+        player.FX.ToggleWebbedMesh(false);
     }
 }

@@ -5,6 +5,8 @@ using UnityEngine;
 [RequireComponent(typeof(Player))]
 public class PlayerFX : MonoBehaviour
 {
+    private const string k_webbedTag = "Webbed";
+    
     [Title("Breeze")] 
     [SerializeField] private ParticleSystem wallRunVFX;
     [SerializeField] private ParticleSystem breezeUltVFX;
@@ -18,6 +20,7 @@ public class PlayerFX : MonoBehaviour
     private ValueTransferer _sprintTransferer;
     
     private Player _player;
+    private GameObject _webMesh;
 
     public ParticleSystem BreezeUltVFX => breezeUltVFX;
     public ParticleSystem BlastbackUltVFX => blastbackUltVFX;
@@ -27,6 +30,11 @@ public class PlayerFX : MonoBehaviour
     {
         _player = GetComponent<Player>();
         _sprintTransferer = new(PlayerCamera.Cam.m_Lens.FieldOfView, fovChangeSpeed);
+    }
+
+    public void Init()
+    {
+        _webMesh = GetWebbedTaggedMesh();
     }
 
     private void Update()
@@ -43,5 +51,23 @@ public class PlayerFX : MonoBehaviour
     {
         if (toggled) wallRunVFX.Play();
         else wallRunVFX.Stop();
+    }
+
+    public void ToggleWebbedMesh(bool toggled)
+    {
+        _webMesh.SetActive(toggled);
+    }
+
+    private GameObject GetWebbedTaggedMesh()
+    {
+        foreach (Transform child in _player.Mesh.transform)
+        {
+            if (child.CompareTag(k_webbedTag))
+            {
+                return child.gameObject;
+            }
+        }
+
+        return null;
     }
 }

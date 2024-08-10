@@ -17,6 +17,7 @@ public abstract class Gun : MonoBehaviour
     [SerializeField] protected bool debug;
     [SerializeField] protected GunStats stats;
     [SerializeField] protected float trailSpeed = 500f;
+    [SerializeField] protected float staminaGain = 25f;
     [Header("Shoot Ray Properties")]
     [SerializeField] protected LayerMask targetLayers;
     protected Player player;
@@ -160,7 +161,11 @@ public abstract class Gun : MonoBehaviour
             Player target = OnlinePlayersRegistry.Get(pair.Key);
             
             target.Health.TakeDamage(pair.Value.Damage, pair.Value.BulletVec);
-            if (target.Health.CurrentHealth <= 0) player.IncreaseKill();
+            if (target.Health.CurrentHealth <= 0)
+            {
+                player.IncreaseKill();
+                player.Stamina.Consumer.Fill(staminaGain);
+            }
             player.RpcManager.SendHealthDamageClientRpc(target.Network.OwnerClientId, pair.Value.Damage, pair.Value.BulletVec);
             yield return new WaitForEndOfFrame();
         }

@@ -49,9 +49,18 @@ public class WebProjectile : MonoBehaviour
         _rb.AddForce(dir * shootPower, ForceMode.Impulse);
     }
 
-    private void Affect(Player player)
+    private void Affect(Player target)
     {
-        OnlinePlayersRegistry.Get(ThrowerClientId).RpcManager.SendStickClientRpc(player.RpcManager.OwnerClientId, stickDuration);
+        Player sender = OnlinePlayersRegistry.Get(ThrowerClientId);
+        sender.RpcManager.SendStickClientRpc(target.RpcManager.OwnerClientId, stickDuration);
+        sender.StartCoroutine(StartUnToggleWebTimer(target));
+    }
+
+    private IEnumerator StartUnToggleWebTimer(Player target)
+    {
+        target.FX.ToggleWebbedMesh(true);
+        yield return new WaitForSeconds(stickDuration);
+        target.FX.ToggleWebbedMesh(false);
     }
     
     private IEnumerator StartSelfDestructTimer()

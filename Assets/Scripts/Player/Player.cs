@@ -206,6 +206,7 @@ public class Player : MonoBehaviour
         Health.DisabledObjectsOnDeath.Add(Gun.transform.GetChild(0).gameObject); //TASLEEK :)
         
         Network.Init();
+        FX.Init();
         
         if (Network.IsOwner)
         {
@@ -218,6 +219,7 @@ public class Player : MonoBehaviour
             foreach (AbilityUI ability in AbilityUI.Instances) ability.InitUI();
         }
         
+
         Controller.ControlsDisabled = false;
         IsInitialized = true;
         OnInitialized?.Invoke();

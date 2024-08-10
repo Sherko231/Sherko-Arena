@@ -1,4 +1,5 @@
 using System;
+using Sherko.Utils;
 using TMPro;
 using Unity.Netcode;
 using UnityEngine;
@@ -34,7 +35,6 @@ public class PlayerNetwork : NetworkBehaviour
         OnlinePlayersRegistry.RegisterInstanceId(_player.gameObject.GetInstanceID(), _player);
         transform.position = SpawnPointsRegistry.Instance.GetRandomSpawnPoint();
         OnPlayerNetworkSpawn?.Invoke();
-
     }
 
     public void Init()
@@ -47,6 +47,13 @@ public class PlayerNetwork : NetworkBehaviour
         OnlinePlayersRegistry.Deregister(OwnerClientId);
         OnlinePlayersRegistry.DeregisterInstanceId(_player.GetInstanceID());
         OnPlayerNetworkDespawn?.Invoke();
+    }
+
+    public static void PauseAndDisconnect()
+    {
+        SherkoUtils.ToggleCursor(!SherkoUtils.IsCursorVisible);
+        NetworkManager.Singleton.Shutdown();
+        JoinUI.Instance.ToggleUI(!JoinUI.Instance.Toggled);
     }
 
     private void ApplyLocalLayer()

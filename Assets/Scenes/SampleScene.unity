@@ -4513,8 +4513,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1177459143}
   - component: {fileID: 1177459144}
+  - component: {fileID: 1177459145}
   m_Layer: 0
-  m_Name: EditorController
+  m_Name: ClientController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4548,6 +4549,93 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxFPS: 200
+--- !u!114 &1177459145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1177459142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 4d3668a65586d5f42a87eb8021eb577a,
+    type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: a16ee23c-79ab-422f-af7c-24cd692963e5
+    m_ActionName: Player/Movement[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: eaae99a4-09ce-4eb7-aa2b-dd8ec55fe04c
+    m_ActionName: Player/Mouse[/Mouse/delta,/Pen/delta]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: fd78d3d5-ae5b-4a79-9770-75d90fa7c360
+    m_ActionName: Player/Jump[/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: f1ef0619-54b7-4351-923d-307c7ac3bd73
+    m_ActionName: Player/Sprint[/Keyboard/leftShift]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 61b563ae-d1f6-4a09-9143-76cb44635381
+    m_ActionName: Player/Sneak[/Keyboard/ctrl]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 9db3e411-b631-48a9-bf10-81d9c7ebe50e
+    m_ActionName: Player/Shoot[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 53b9b554-7fb7-411b-b556-c71e866b24f5
+    m_ActionName: Player/Reload[/Keyboard/r]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 50981096-1f7b-4202-81e2-a86a9aec8fd5
+    m_ActionName: Player/Costed Ability 1[/Keyboard/e]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 40ce895b-2052-4f2a-80cd-1131f13d8b55
+    m_ActionName: Player/Costed Ability 2[/Keyboard/q]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 4cccecb4-e517-488e-b6ea-3abe637ae068
+    m_ActionName: Player/Ult Ability[/Keyboard/x]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1177459144}
+        m_TargetAssemblyTypeName: ClientController, Assembly-CSharp
+        m_MethodName: OnPause
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: e3e4b75c-46b7-4e98-8d33-c26a99502e25
+    m_ActionName: Player/Pause[/Keyboard/backspace]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Player
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &1199377313
 GameObject:
   m_ObjectHideFlags: 0

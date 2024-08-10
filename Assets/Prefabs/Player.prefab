@@ -374,7 +374,7 @@ GameObject:
   - component: {fileID: 6388081061997150151}
   - component: {fileID: 8356382272941853226}
   - component: {fileID: 6555702311617988443}
-  m_Layer: 13
+  m_Layer: 3
   m_Name: WallRunVFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}

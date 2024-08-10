@@ -55,7 +55,7 @@ public class GrappleGun : MonoBehaviour
         
         while (SherkoUtils.SquaredDistance(hit, transform.position) > Mathf.Pow(grappleResetRadius, 2) && _canGrapple)
         {
-            _player.Rb.AddForce((hit - transform.position).normalized * grappleSpeed, ForceMode.VelocityChange);
+            _player.Rb.AddForce((hit - transform.position).normalized * (grappleSpeed * 100 * Time.deltaTime), ForceMode.VelocityChange);
             yield return new WaitForEndOfFrame();
         }
 

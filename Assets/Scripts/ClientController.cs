@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class ClientController : MonoBehaviour
@@ -7,5 +8,10 @@ public class ClientController : MonoBehaviour
     private void Awake()
     {
         Application.targetFrameRate = maxFPS;
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.T)) Player.OwnerSingleton.Stamina.Consumer.Full();
     }
 }

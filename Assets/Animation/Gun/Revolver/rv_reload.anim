@@ -197,7 +197,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: revolver/Cylinder.006
+    path: Mesh/Cylinder.006
   m_ScaleCurves: []
   m_FloatCurves: []
   m_PPtrCurves: []
@@ -218,7 +218,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 366550135
+      path: 367291257
       attribute: 1
       script: {fileID: 0}
       typeID: 4
@@ -643,7 +643,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.x
-    path: revolver/Cylinder.006
+    path: Mesh/Cylinder.006
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -745,7 +745,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.y
-    path: revolver/Cylinder.006
+    path: Mesh/Cylinder.006
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -847,7 +847,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.z
-    path: revolver/Cylinder.006
+    path: Mesh/Cylinder.006
     classID: 4
     script: {fileID: 0}
     flags: 0

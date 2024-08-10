@@ -5,11 +5,11 @@ using UnityEngine;
 public class PlayerNetworkRpcManager : NetworkBehaviour
 {
     [Rpc(SendTo.NotOwner)]
-    public void SendHealthDamageClientRpc(ulong playerClientId, float damage)
+    public void SendHealthDamageClientRpc(ulong playerClientId, float damage, Vector3 bulletVec)
     {
         Player player = OnlinePlayersRegistry.Get(playerClientId);
         if (!player.IsInitialized) return;
-        player.Health.TakeDamage(damage);
+        player.Health.TakeDamage(damage, bulletVec);
     }
     
     [Rpc(SendTo.NotOwner)]
@@ -67,6 +67,14 @@ public class PlayerNetworkRpcManager : NetworkBehaviour
         if (!player.IsInitialized) return;
         player.Controller.ControlsDisabled = true;
         player.StartCoroutine(StartStickTimer(player, duration));
+    }
+
+    [Rpc(SendTo.NotOwner)]
+    public void SendDmgIndClientRpc(ulong playerId, int dmgIndPos)
+    {
+        Player player = OnlinePlayersRegistry.Get(playerId);
+        if (!player.IsInitialized) return;
+        
     }
 
     private static IEnumerator StartStickTimer(Player player, float duration)

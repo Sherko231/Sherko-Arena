@@ -95,7 +95,7 @@ public class Grenade : MonoBehaviour
             float damage = damageHandler.damage;
             
             target.Health.TakeDamage(damage);
-            grenadeOwner.RpcManager.SendHealthDamageClientRpc(target.Network.OwnerClientId, damage);
+            grenadeOwner.RpcManager.SendHealthDamageClientRpc(target.Network.OwnerClientId, damage, Vector3.zero); //todo : double check
         }
     } 
     

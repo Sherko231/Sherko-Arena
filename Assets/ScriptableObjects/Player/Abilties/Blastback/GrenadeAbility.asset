@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   index: 0
   staminaCost: 40
-  reuseDelay: 4
+  reuseDelay: 1
+  hasDuration: 0
+  duration: 0
   shootPower: 50
   grenadePrefab: {fileID: 6557153865388734404, guid: f6679c4d5fd0ca745b6a3aab6c2bb397,
     type: 3}

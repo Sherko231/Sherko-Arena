@@ -95,9 +95,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9882c1b09ac4c28839f309f770a8795, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  highDmgRadius: 2
-  mediumDmgRadius: 5
-  lowDmgRadius: 7
+  highDmgRadius: 5
+  mediumDmgRadius: 7
+  lowDmgRadius: 13
   highDmg: 50
   mediumDmg: 25
   lowDmg: 10

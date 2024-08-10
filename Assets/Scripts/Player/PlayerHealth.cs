@@ -63,7 +63,55 @@ public class PlayerHealth : MonoBehaviour
             _player.RpcManager.SendDeathConfirmClientRpc(_player.Network.OwnerClientId);
         }
     }
+    
+    public void TakeDamage(float damage, Vector3 bulletDir)
+    {
+        if (!IsAlive) return;
+        CurrentHealth -= damage;
+        float dot = CalculateIncomingShootDot(bulletDir);
+        float cross = CalculateIncomingShootCross(bulletDir);
+        if (_player.Network.IsOwner) TriggerIndicator(dot, cross);
+        if (CurrentHealth <= 0)
+        {
+            Die();
+            _player.RpcManager.SendDeathConfirmClientRpc(_player.Network.OwnerClientId);
+        }
+    }
 
+    private float CalculateIncomingShootDot(Vector3 bulletDir)
+    {
+        Vector3 meshFwd = _player.Mesh.transform.forward; //because LookingVec is not synchronized in network
+        Vector2 lookVec2D = new(meshFwd.x, meshFwd.z);
+        Vector2 bulletDir2D = new(bulletDir.x, bulletDir.z);
+        
+        float dotProduct = Vector2.Dot(lookVec2D.normalized, bulletDir2D.normalized);
+        return dotProduct;
+    }
+    
+    private float CalculateIncomingShootCross(Vector3 bulletDir)
+    {
+        Vector3 meshFwd = _player.Mesh.transform.forward; //because LookingVec is not synchronized in network
+        Vector2 lookVec2D = new(meshFwd.x, meshFwd.z);
+        Vector2 bulletDir2D = new(bulletDir.x, bulletDir.z);
+        
+        float crossProduct = lookVec2D.x * bulletDir2D.y - lookVec2D.y * bulletDir2D.x;
+        return crossProduct;
+    }
+
+    private void TriggerIndicator(float dotProduct, float crossProduct)
+    {
+        if (dotProduct < 0) //fwd
+        {
+            if (crossProduct > 0) DmgIndManager.Instance.UpperRightDI.Trigger();
+            else DmgIndManager.Instance.UpperLeftDI.Trigger();
+        }
+        else
+        {
+            if (crossProduct > 0) DmgIndManager.Instance.BottomRightDI.Trigger();
+            else DmgIndManager.Instance.BottomLeftDI.Trigger();
+        }
+    }
+    
     public void Fill()
     {
         CurrentHealth = maxHealth;

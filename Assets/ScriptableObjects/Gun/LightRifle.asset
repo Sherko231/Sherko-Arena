@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da74d7f757df4c96a6c9212806d02c34, type: 3}
   m_Name: LightRifle
   m_EditorClassIdentifier: 
-  Damage: 6
+  Damage: 8
   ShootInterval: 0.1
   AmmoCapacity: 60
   MissBulletDist: 120

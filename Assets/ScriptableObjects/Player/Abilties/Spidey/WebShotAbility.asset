@@ -19,4 +19,4 @@ MonoBehaviour:
   duration: 0
   webPrefab: {fileID: 5330148060109249169, guid: 6c71616ea220e2342abce5f0c7a7c04b,
     type: 3}
-  launchPower: 40
+  launchPower: 80

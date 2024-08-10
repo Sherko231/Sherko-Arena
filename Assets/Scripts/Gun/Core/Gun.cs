@@ -38,14 +38,28 @@ public abstract class Gun : MonoBehaviour
     
     private class GunHitInfo
     {
-        public GunHitInfo(ulong targetClientID, float damage)
+        public GunHitInfo(ulong targetClientID, float damage, Vector3 shootDir)
         {
             TargetClientID = targetClientID;
             Damage = damage;
+            ShootDir = shootDir;
         }
         
         public ulong TargetClientID { get; private set; }
         public float Damage { get; private set; }
+        public Vector3 ShootDir { get; private set; }
+    }
+    
+    private struct DamagePair
+    {
+        public DamagePair(float damage, Vector3 bulletVec)
+        {
+            Damage = damage;
+            BulletVec = bulletVec;
+        }
+        
+        public float Damage { get; private set; }
+        public Vector3 BulletVec { get; private set; }
     }
     
     protected void Awake()
@@ -55,7 +69,7 @@ public abstract class Gun : MonoBehaviour
         Ammo.Full();
     }
 
-    public virtual void Init(Player p)
+    public void Init(Player p)
     {
         player = p;
         if (player.Network.IsOwner) ApplyLocalLayer();
@@ -75,7 +89,6 @@ public abstract class Gun : MonoBehaviour
 
             if (player.Network.IsOwner)
             {
-                //DetectAndDamagePlayer(gunHit);
                 GunHitInfo info = DetectPlayersToDamage(gunHit);
                 if (info != null) gunHitInfos.Add(info);
             }
@@ -85,7 +98,7 @@ public abstract class Gun : MonoBehaviour
 
         if (player.Network.IsOwner)
         {
-            Dictionary<ulong, float> damagePairs = CalculateDamages(gunHitInfos);
+            Dictionary<ulong, DamagePair> damagePairs = CalculateDamages(gunHitInfos);
             player.StartCoroutine(DamagePlayers(damagePairs));
             
             player.RpcManager.SendPlayerShootClientRpc(playerClientId);
@@ -109,19 +122,6 @@ public abstract class Gun : MonoBehaviour
         }
     }
     
-    // private void DetectAndDamagePlayer(GunHit gunHit) 
-    // {
-    //     int hitLayer = gunHit.IsValid ? gunHit.HitObject.layer : 0;
-    //     if (hitLayer != LayerMask.NameToLayer("Player") && hitLayer != LayerMask.NameToLayer("LocalPlayer")) return;
-    //     
-    //     Player target = OnlinePlayersRegistry.GetByInstanceId(gunHit.HitObject.GetInstanceID());
-    //     if (!target.Health.IsAlive || target == player) return;
-    //     
-    //     target.Health.TakeDamage(stats.Damage);
-    //     if (target.Health.CurrentHealth <= 0) player.IncreaseKill();
-    //     player.RpcManager.SendHealthDamageClientRpc(target.Network.OwnerClientId, stats.Damage); // network heavy in for loop, keep in mind : (maybe more than one target)
-    // }
-    
     private GunHitInfo DetectPlayersToDamage(GunHit gunHit) 
     {
         int hitLayer = gunHit.IsValid ? gunHit.HitObject.layer : 0;
@@ -130,22 +130,22 @@ public abstract class Gun : MonoBehaviour
         Player target = OnlinePlayersRegistry.GetByInstanceId(gunHit.HitObject.GetInstanceID());
         if (!target.Health.IsAlive || target == player) return null;
 
-        return new GunHitInfo(target.Network.OwnerClientId, stats.Damage);
+        return new GunHitInfo(target.Network.OwnerClientId, stats.Damage, shootPoint.forward);
     }
 
-    private Dictionary<ulong, float> CalculateDamages(List<GunHitInfo> gunHitInfos)
+    private Dictionary<ulong, DamagePair> CalculateDamages(List<GunHitInfo> gunHitInfos) //clientId, (damage, bulletVec)
     {
-        Dictionary<ulong, float> damagePairs = new();
+        Dictionary<ulong, DamagePair> damagePairs = new();
 
         foreach (GunHitInfo gunHitInfo in gunHitInfos)
         {
-            if (damagePairs.TryGetValue(gunHitInfo.TargetClientID, out float previousDamage))
+            if (damagePairs.TryGetValue(gunHitInfo.TargetClientID, out DamagePair previousDamagePair))
             {
-                damagePairs[gunHitInfo.TargetClientID] = gunHitInfo.Damage + previousDamage;
+                damagePairs[gunHitInfo.TargetClientID] = new DamagePair(gunHitInfo.Damage + previousDamagePair.Damage, gunHitInfo.ShootDir);
             }
             else
             {
-                damagePairs.Add(gunHitInfo.TargetClientID, gunHitInfo.Damage);
+                damagePairs.Add(gunHitInfo.TargetClientID, new DamagePair(gunHitInfo.Damage, gunHitInfo.ShootDir));
             }
             
         }
@@ -153,16 +153,15 @@ public abstract class Gun : MonoBehaviour
         return damagePairs;
     }
 
-    private IEnumerator DamagePlayers(Dictionary<ulong, float> damagePairs)
+    private IEnumerator DamagePlayers(Dictionary<ulong, DamagePair> damagePairs)
     {
-        foreach (KeyValuePair<ulong, float> pair in damagePairs)
+        foreach (KeyValuePair<ulong, DamagePair> pair in damagePairs)
         {
             Player target = OnlinePlayersRegistry.Get(pair.Key);
             
-            target.Health.TakeDamage(pair.Value);
+            target.Health.TakeDamage(pair.Value.Damage, pair.Value.BulletVec);
             if (target.Health.CurrentHealth <= 0) player.IncreaseKill();
-            player.RpcManager.SendHealthDamageClientRpc(target.Network.OwnerClientId, pair.Value); // network heavy in for loop, keep in mind : (maybe more than one target)
-            Debug.Log("HealthRPC sent : " + pair.Value);
+            player.RpcManager.SendHealthDamageClientRpc(target.Network.OwnerClientId, pair.Value.Damage, pair.Value.BulletVec);
             yield return new WaitForEndOfFrame();
         }
     }

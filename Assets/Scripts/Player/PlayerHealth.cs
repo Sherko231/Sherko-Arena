@@ -22,6 +22,7 @@ public class PlayerHealth : MonoBehaviour
     public List<GameObject> DisabledObjectsOnDeath => disabledObjectsOnDeath;
     public float MaxHealth => maxHealth;
     public bool IsAlive { get; private set; } = true;
+    public bool Damagable { get; set; }
 
     public float CurrentHealth
     {

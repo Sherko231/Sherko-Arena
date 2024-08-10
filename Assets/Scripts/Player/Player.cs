@@ -204,6 +204,7 @@ public class Player : MonoBehaviour
         
         Health.DisabledObjectsOnDeath.Add(Mesh);
         Health.DisabledObjectsOnDeath.Add(Gun.transform.GetChild(0).gameObject); //TASLEEK :)
+        Health.Damagable = true;
         
         Network.Init();
         FX.Init();

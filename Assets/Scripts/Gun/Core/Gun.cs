@@ -159,6 +159,7 @@ public abstract class Gun : MonoBehaviour
         foreach (KeyValuePair<ulong, DamagePair> pair in damagePairs)
         {
             Player target = OnlinePlayersRegistry.Get(pair.Key);
+            if (!target.Health.Damagable) continue;
             
             target.Health.TakeDamage(pair.Value.Damage, pair.Value.BulletVec);
             if (target.Health.CurrentHealth <= 0)

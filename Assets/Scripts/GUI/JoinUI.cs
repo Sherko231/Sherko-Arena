@@ -7,6 +7,8 @@ public class JoinUI : MonoBehaviour
 {
     public static JoinUI Instance { get; private set; }
     
+    public bool Toggled { get; private set; }
+    
     private VisualElement _mainUI;
     private TextField _joinCodeField;
     private Button _joinBtn;
@@ -34,6 +36,12 @@ public class JoinUI : MonoBehaviour
         _HostBtn.clicked -= Host;
     }
 
+    public void ToggleUI(bool value)
+    {
+        _mainUI.style.display = value ? DisplayStyle.Flex : DisplayStyle.None;
+        Toggled = value;
+    }
+
     private void ConfirmSelection()
     {
         CharacterSelector.Instance.Selection = Enum.Parse<CharacterType>(_characterSelect.value);
@@ -54,13 +62,13 @@ public class JoinUI : MonoBehaviour
         _joinCode = _joinCodeField.text;
         if (_joinCode == "XXXXXX" || _joinCode.Length != 6) return;
         GameRelay.Instance.JoinRelay(_joinCode);
-        _mainUI.style.display = DisplayStyle.None;
+        ToggleUI(false);
     }
 
     private void Host()
     {
         ConfirmSelection();
         GameRelay.Instance.CreateRelay();
-        _mainUI.style.display = DisplayStyle.None;
+        ToggleUI(false);
     }
 }

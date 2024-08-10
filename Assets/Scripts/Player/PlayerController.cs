@@ -1,4 +1,5 @@
 using Sherko.Utils;
+using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
@@ -21,6 +22,15 @@ public class PlayerController : MonoBehaviour
     private bool _sprintPressed;
     private bool _sneakPressed;
     private bool _shootPressed;
+
+    public void OnPause(InputAction.CallbackContext c)
+    { 
+        if (!c.started) return;
+        if (!_player.Network.IsOwner) return;
+        SherkoUtils.ToggleCursor(!SherkoUtils.IsCursorVisible);
+        NetworkManager.Singleton.Shutdown();
+        JoinUI.Instance.ToggleUI(!JoinUI.Instance.Toggled);
+    }
     
     public void OnMove(InputAction.CallbackContext c)
     {

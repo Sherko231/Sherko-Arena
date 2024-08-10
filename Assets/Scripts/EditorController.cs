@@ -13,7 +13,6 @@ public class EditorController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Backspace)) SherkoUtils.ToggleCursor(!SherkoUtils.IsCursorVisible);
         if (Input.GetKeyDown(KeyCode.T)) Player.OwnerSingleton.Stamina.Consumer.Fill(100f);
         if (Input.GetKeyDown(KeyCode.H)) Player.OwnerSingleton.Stamina.Consumer.Consume(10f);
     }

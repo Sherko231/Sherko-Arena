@@ -98,9 +98,9 @@ MonoBehaviour:
   highDmgRadius: 5
   mediumDmgRadius: 7
   lowDmgRadius: 13
-  highDmg: 50
-  mediumDmg: 25
-  lowDmg: 10
+  highDmg: 100
+  mediumDmg: 50
+  lowDmg: 25
   explodeVFX: {fileID: 2433282508523890284, guid: 48d9c3d384db08644905f63f51df9555,
     type: 3}
 --- !u!1 &2519426941584747346
